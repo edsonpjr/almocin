@@ -1,6 +1,6 @@
 Feature: Statistics
 
-   Scenario: GET todas estatísticas
+   Scenario: GET todas as estatísticas
     Given há um objeto em "Estatistica":
     """
       {
