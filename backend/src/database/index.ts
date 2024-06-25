@@ -56,6 +56,15 @@ export default class Database {
       categories[Math.floor(Math.random() * categories.length)].id
     ))
 
+    function getRandomItemsIds() {
+      const itemsIds = [];
+      const itemsLength = Math.floor(Math.random() * items.length) + 1; // 1 - 10
+      for (let i = 0; i < itemsLength; i++) {
+        itemsIds.push(`item-id-${Math.floor(Math.random() * items.length)}`);
+      }
+      return itemsIds;
+    }
+
     Database.getInstance().data = {
       menu: items.map((item, index) => new ItemMenuEntity({
         id: `item-id-${index}`,
@@ -77,7 +86,7 @@ export default class Database {
       })),
 
       order: items.map((item, index) => new OrderEntity({
-        itemsId:items,
+        itemsId: getRandomItemsIds(),
         userID: users[Math.floor(Math.random() * users.length)].id,
         id: `pedido-id-${index}`,
         totalPrice: Math.floor(Math.random() * 10), // 0 - 9

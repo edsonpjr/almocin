@@ -11,7 +11,7 @@ const authMiddleware = (req: CustomRequest, res: Response, next: NextFunction) =
   if (process.env.ENV == 'TEST') {
     token = generateToken('123');
   } else {
-    token = req.headers.authorization?.split(' ')[1];
+    token = req.headers.authorization;
   }
 
   if (!token) {
