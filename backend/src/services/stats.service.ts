@@ -59,6 +59,7 @@ class StatsService {
           currentMonthAverageTicket
         };
 
+      break;
       case StatsFilter.MONEY:
         model = {
           totalRevenue,
@@ -67,6 +68,7 @@ class StatsService {
           averageTicket
         };
 
+      break;
       default:
         model = {
           totalUsers: users.length,

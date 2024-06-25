@@ -26,8 +26,8 @@ class StatsController {
   }
 
   private async getStats(req: Request, res: Response) {
-    const period = req.params.period as StatsFilter || StatsFilter.ALL;
-    const stats = await this.statsService.getStats(period);
+    const filter = req.params.filter as StatsFilter || StatsFilter.ALL;
+    const stats = await this.statsService.getStats(filter);
     
     return new SuccessResult({
       msg: 'Stats found',
