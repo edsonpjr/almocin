@@ -14,7 +14,6 @@ defineFeature(feature, (scenario) => {
   let orderService: OrderService;
   let orderRepository: OrderRepository;
   let menuRepository: MenuRepository;
-  let createdOrder: OrderEntity | undefined;
   let orderModel: any;
 
   beforeAll(() => {
@@ -51,7 +50,6 @@ defineFeature(feature, (scenario) => {
 
   afterEach(() => {
     jest.clearAllMocks();
-    createdOrder = undefined;
   });
 
   scenario('Criar um pedido', ({

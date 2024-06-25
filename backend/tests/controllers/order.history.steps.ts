@@ -2,7 +2,6 @@ import { loadFeature, defineFeature } from 'jest-cucumber';
 import supertest from 'supertest';
 import app from '../../src/app';
 import OrderRepository from '../../src/repositories/order.repository';
-import ItemMenuEntity from '../../src/entities/item-menu.entity';
 import OrderEntity from '../../src/entities/order.entity';
 import { OrderStatus } from '../../src/types/order';
 

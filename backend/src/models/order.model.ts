@@ -1,4 +1,3 @@
-import ItemMenuEntity from '../entities/item-menu.entity';
 import { OrderStatus } from '../types/order';
 import BaseModel from './base.model';
 

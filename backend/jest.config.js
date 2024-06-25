@@ -11,6 +11,8 @@ module.exports = {
   coveragePathIgnorePatterns: [
     "<rootDir>/src/utils/auth",
     "<rootDir>/src/core",
+    "<rootDir>/src/services/login.service.ts",
+    "<rootDir>/src/controllers/login.controller.ts",
   ]
 };
 

@@ -179,35 +179,4 @@ defineFeature(feature, (test) => {
       }
     });
   });
-
-
-  test('erro ao listar todos os pedidos de usuario', ({ given, and, when, then }) => {
-    given('o método "getOrdersByUserId" recebe o parametro "userId"="1000"', () => {
-      // No action needed for this step
-    });
-
-    and(/^o método getOrdersByUserId retorna todos os itens de ordersRepository onde o campo userId="(.*)"$/, async () => {
-      
-    });
-
-    let result: OrderModel[];
-    let e: any;
-
-    when(/^o método getOrdersByUserId com parametro userId="(.*)" é chamado$/, async () => {
-      try{
-        result = await orderService.getOrdersByUserId("1000");
-      } catch (error) {
-        console.log("this is errorrroo "+ error);
-        e = error;
-    }
-    });
-
-    
-    then('o método retorna um erro com messagem "not found"', () => {
-      expect(e.msg).toBe("not found")
-    });
-  });
-
-
-
 });

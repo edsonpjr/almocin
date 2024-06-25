@@ -5,6 +5,7 @@ import { di } from '../../src/di';
 import OrderRepository from '../../src/repositories/order.repository';
 import OrderEntity from '../../src/entities/order.entity';
 import { OrderStatus } from '../../src/types/order';
+import formatParam from '../utils/formatParams';
 
 const feature = loadFeature('./tests/features/cancelar-pedidos-route.feature');
 const request = supertest(app);
@@ -36,11 +37,18 @@ defineFeature(feature, (test) => {
       }));
 
       mockOrderRepository.getOrders.mockResolvedValue(orderData);
+      mockOrderRepository.getOrder.mockImplementation(async (id: string) => {
+        return orderData.find((order) => order.id === id) ?? null;
+      })
+      mockOrderRepository.updateOrder.mockImplementation(async (id: string, data: OrderEntity) => {
+        const entity = orderData.find((order) => order.id === id);
+        if (!entity) return null;
+        return { ...entity, ...data };
+      })
     });
 
-    when(/^o usuário faz uma requisição "(.*)" para "(.*)" com os seguintes dados:$/, async (method, route, docString) => {
+    when(/^o usuário faz uma requisição "(.*)" para "(.*)" com os seguintes dados:$/, async (method, route) => {
       response = await request.put(route).send({ status: OrderStatus.canceled });
-      expect(response.status).toBe(200); 
     });
 
     then(/^a resposta deve ser "(.*)"$/, (statusCode) => {
@@ -51,9 +59,8 @@ defineFeature(feature, (test) => {
       const updatedOrders = await mockOrderRepository.getOrders();
 
       expect(updatedOrders.length).toBe(table.length);
-      console.log("Updated Orders:", updatedOrders); 
       for (let i = 0; i < updatedOrders.length; i++) {
-        expect(updatedOrders[i].id).toEqual(table[i].id);
+        expect(updatedOrders[i].id).toEqual(formatParam(table[i].id));
         expect(updatedOrders[i].userID).toEqual(table[i].userID);
       }
     });
