@@ -3,6 +3,7 @@ import { FailureResult, Result, SuccessResult } from '../utils/result';
 import MenuService from '../services/menu.service';
 import ItemMenuEntity from '../entities/item-menu.entity';
 import { HttpNotFoundError } from '../utils/errors/http.error';
+import authMiddleware from '../core/authentication';
 
 class MenuController {
   private prefix: string = '/menu';
@@ -16,6 +17,7 @@ class MenuController {
   }
 
   private initRoutes() {
+    this.router.use(authMiddleware)
     this.router.get(this.prefix, (req: Request, res: Response) =>
       this.getItems(req, res)
     );

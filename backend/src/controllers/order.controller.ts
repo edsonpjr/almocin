@@ -3,6 +3,7 @@ import { Result, SuccessResult } from '../utils/result';
 import OrderService from '../services/order.service';
 import { OrderStatus } from '../types/order';
 import OrderEntity from '../entities/order.entity';
+import authMiddleware from '../core/authentication';
 
 class OrderController {
   private prefix: string = '/order';
@@ -16,6 +17,7 @@ class OrderController {
   }
 
   private initRoutes() {
+    this.router.use(authMiddleware);
     this.router.get(this.prefix, (req: Request, res: Response) =>
       this.getOrders(req, res)
     );

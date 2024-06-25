@@ -2,6 +2,7 @@ import { Request, Response, Router } from 'express';
 import StatsService from '../services/stats.service';
 import { SuccessResult } from '../utils/result';
 import { StatsFilter } from '../types/stats';
+import authMiddleware from '../core/authentication';
 
 class StatsController {
   private prefix: string = '/stats';
@@ -18,6 +19,7 @@ class StatsController {
   }
 
   private initRoutes() {
+    this.router.use(authMiddleware);
     this.router.get(`${this.prefix}/:filter`, (req: Request, res: Response) => 
       this.getStats(req, res)
     );

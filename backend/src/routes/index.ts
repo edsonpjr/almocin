@@ -8,13 +8,11 @@ import LoginController from '../controllers/login.controller';
 import LoginService from '../services/login.service';
 import RegisterController from '../controllers/register.controller'; // Adicione isto
 import RegisterService from '../services/register.service'; // Adicione isto
-import authMiddleware from '../core/authentication';
 
 import OrderService from '../services/order.service';
 import OrderController from '../controllers/order.controller';
 import StatsController from '../controllers/stats.controller';
 import StatsService from '../services/stats.service';
-import limiterMiddleware from '../core/limiter';
 
 const router = Router();
 const prefix = '/api';
@@ -22,7 +20,6 @@ const prefix = '/api';
 export default (app: Express) => {
   app.use(
     `${prefix}`,
-    limiterMiddleware,
     new LoginController(router, di.getService(LoginService)).router
   );
 
@@ -33,23 +30,21 @@ export default (app: Express) => {
 
   app.use(
     `${prefix}`,
-    authMiddleware,
-    new MenuController(router, di.getService(MenuService)).router
+    new MenuController(router, di.getService(MenuService)).router,
   );
+
   app.use(
     `${prefix}`,
-    authMiddleware,
     new CategoryController(router, di.getService(CategoryService)).router
   );
 
   app.use(
     `${prefix}`,
-    authMiddleware,
     new OrderController(router, di.getService(OrderService)).router
   )
+
   app.use(
     `${prefix}`,
-    authMiddleware,
     new StatsController(router, di.getService(StatsService)).router
   )
   

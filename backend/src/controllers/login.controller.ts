@@ -1,6 +1,7 @@
 import { Router, Request, Response } from 'express';
 import LoginService from '../services/login.service';
 import { HttpError } from '../utils/errors/http.error';
+import limiterMiddleware from '../core/limiter';
 
 class LoginController {
   public prefix: string = '/login';
@@ -14,6 +15,7 @@ class LoginController {
   }
 
   private initRoutes() {
+    this.router.use(limiterMiddleware)
     this.router.post(this.prefix, (req: Request, res: Response) => this.login(req, res));
     this.router.post(`${this.prefix}/logout`, (req: Request, res: Response) => this.logout(req, res));
     this.router.post(`${this.prefix}/forgot-password`, (req: Request, res: Response) => this.forgotPassword(req, res));

@@ -4,6 +4,7 @@ import CategoryService from '../services/category.service';
 import CategoryEntity from '../entities/category.entity';
 import { HttpNotFoundError } from '../utils/errors/http.error';
 import { CategoryValidationMessages } from '../utils/validation/validationMessages';
+import authMiddleware from '../core/authentication';
 
 class CategoryController {
   private prefix: string = '/category';
@@ -17,6 +18,7 @@ class CategoryController {
   }
 
   private initRoutes() {
+    this.router.use(authMiddleware)
     this.router.get(this.prefix, (req: Request, res: Response) =>
       this.getCategories(req, res)
     );
