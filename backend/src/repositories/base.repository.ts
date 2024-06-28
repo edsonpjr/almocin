@@ -22,6 +22,7 @@ export default class BaseRepository<T extends BaseEntity> {
       const newItem = {
         ...data,
         id: uuidv4(),
+        createdAt: new Date(),
       };
       this.db.data[this.prefix].push(newItem);
       return newItem;
@@ -80,7 +81,7 @@ export default class BaseRepository<T extends BaseEntity> {
         return;
       }
 
-      this.db.data[this.prefix] = this.db.data[this.prefix].filter(filter);
+      this.db.data[this.prefix] = this.db.data[this.prefix].filter(filter)
     } catch (e) {
       throw new HttpInternalServerError();
     }
