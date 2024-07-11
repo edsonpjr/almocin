@@ -1,9 +1,9 @@
 import { Dispatch } from "react";
 import { CategoryStateAction, CategoryStateType } from "./types";
-import { ApiService } from "src/shared/services/ApiService";
+import { ApiService } from "../../../../shared/services/ApiService";
 import { CategoryFormType } from "../../forms/CategoryForm";
-import { AppUnknownError } from "src/shared/errors/app-error";
-import RequestStatus from "src/shared/types/request-status";
+import { AppUnknownError } from "../../../../shared/errors/app-error";
+import RequestStatus from "../../../../shared/types/request-status";
 import CategoryModel from "../../models/CategoryModel";
 
 export default class CategoryService {

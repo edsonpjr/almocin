@@ -1,9 +1,9 @@
 import { createContext, useReducer, useMemo } from "react";
 import CategoryService from "./service";
 import categoryStateReducer from "./reducer";
-import { ApiService } from "src/shared/services/ApiService";
-import RequestStatus from "src/shared/types/request-status";
-import usePrevious from "src/shared/hooks/usePrevious";
+import { ApiService } from "../../../../shared/services/ApiService";
+import RequestStatus from "../../../../shared/types/request-status";
+import usePrevious from "../../../../shared/hooks/usePrevious";
 import { CategoryContextProps, CategoryProviderProps } from "./types";
 
 export const CategoryContext = createContext<CategoryContextProps>(
