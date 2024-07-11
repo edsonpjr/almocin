@@ -1,4 +1,4 @@
-import RequestStatus from "src/shared/types/request-status";
+import RequestStatus from "../../../../shared/types/request-status";
 import CategoryModel from "../../models/CategoryModel";
 import { ReactNode } from "react";
 import CategoryService from "./service";
