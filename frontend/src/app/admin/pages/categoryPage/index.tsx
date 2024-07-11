@@ -1,12 +1,16 @@
 import { useCallback, useContext, useEffect, useState } from "react";
 import styles from "./index.module.css";
 import { CategoryContext } from "../../context/categoryContext";
+import LoadingComponent from "../../../../shared/components/Loading";
+import Modal from "../../../../shared/components/model";
 
 const CategoryPage = () => {
   const { service, state } = useContext(CategoryContext);
   const [createOrEdit, setCreateOrEdit] = useState<"create" | "edit">("create");
   const [categoryToEdit, setCategoryToEdit] = useState<string | null>(null);
   const [newCategoryName, setNewCategoryName] = useState("");
+  const [errorMsg, setErrorMsg] = useState('');
+  const [showLoading, setShowLoading] = useState(false);
 
   function createCategory() {
     return () => {
@@ -17,6 +21,10 @@ const CategoryPage = () => {
 
   const onChangeNewCategoryName = useCallback((event) => {
     setNewCategoryName(event.target.value);
+  }, []);
+
+  const closeModalAlert = useCallback(() => {
+    setErrorMsg('');
   }, []);
 
   function editCategory() {
@@ -46,6 +54,37 @@ const CategoryPage = () => {
 
   useEffect(() => {
     service.getCategories()
+
+    state.createCategoryRequestStatus.maybeMap({
+      failed: (error) => setErrorMsg(error.message),
+      loading: () => {
+        setShowLoading(true)
+        setTimeout(() => {
+          setShowLoading(false) 
+        }, 1000);
+      }
+    })
+    state.updateCategoryRequestStatus.maybeMap({
+      failed: (error) => {
+        console.log(error.message)
+        setErrorMsg(error.message)
+      },
+      loading: () => {
+        setShowLoading(true)
+        setTimeout(() => {
+          setShowLoading(false) 
+        }, 1000);
+      }
+    })
+    state.deleteCategoryRequestStatus.maybeMap({
+      failed: (error) => setErrorMsg(error.message),
+      loading: () => {
+        setShowLoading(true)
+        setTimeout(() => {
+          setShowLoading(false) 
+        }, 1000);
+      }
+    })
   }, 
   [service,
     state.updateCategoryRequestStatus,
@@ -121,6 +160,14 @@ const CategoryPage = () => {
           >Adicionar Categoria</button>
         }
       </div>
+      {showLoading && <LoadingComponent></LoadingComponent>}
+      <Modal
+        open={errorMsg !== ''}
+        title="Ocorreu um erro inesperado."
+        closeButtonCallback={closeModalAlert}
+      >
+        <span>{errorMsg}</span>
+      </Modal>
     </section>
   );
 };
