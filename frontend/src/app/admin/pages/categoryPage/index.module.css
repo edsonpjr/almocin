@@ -38,10 +38,6 @@
 }
 
 @media screen and (max-width: 768px) {
-  .title {
-    font-size: 2rem;
-  }
-
   .createButton {
     padding: 0.5rem;
     font-size: 0.8rem;

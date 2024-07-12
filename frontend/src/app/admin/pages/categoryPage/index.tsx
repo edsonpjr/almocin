@@ -69,10 +69,7 @@ const CategoryPage = () => {
       loading: () => loading()
     })
     state.updateCategoryRequestStatus.maybeMap({
-      failed: (error) => {
-        console.log(error.message)
-        setErrorMsg(error.message)
-      },
+      failed: (error) => setErrorMsg(error.message),
       loading: () => loading()
     })
     state.deleteCategoryRequestStatus.maybeMap({
@@ -90,8 +87,16 @@ const CategoryPage = () => {
     <BaseLayout titlePage="Categorias">
       <div className={styles.listContainer}>
         {state.getCategoriesRequestStatus.maybeMap({
-          loading: () => <span>Carregando...</span>,
-          failed: () => <span>Erro ao carregar categorias!</span>,
+          loading: () => <LoadingComponent></LoadingComponent>,
+          failed: () => (
+            <Modal
+              open={true}
+              title="Ocorreu um erro inesperado."
+              closeButtonCallback={closeModalAlert}
+            >
+              <span>Erro ao carregar as categorias!</span>
+            </Modal>
+          ),
           succeeded: (categories) => (
             <>
               {categories.map((category) => {
