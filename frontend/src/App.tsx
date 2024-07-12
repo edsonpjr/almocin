@@ -1,23 +1,19 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import CreateTest from "./app/home/pages/CreateTest";
-import ListTests from "./app/home/pages/ListTests";
 import CategoryPage from "./app/admin/pages/categoryPage";
 import UserPage from "./app/admin/pages/userPage";
 import MenuPage from "./app/admin/pages/menuPage";
 import AdminPage from "./app/admin/pages/adminPage";
+import RegisterPage from "./app/login/pages/registerPage";
+import LoginPage from "./app/login/pages/loginPage";
 
 const router = createBrowserRouter([
   {
     path: "*",
-    Component: CreateTest,
+    Component: LoginPage,
   },
   {
-    path: "/create-test",
-    Component: CreateTest,
-  },
-  {
-    path: "/tests",
-    Component: ListTests,
+    path: "/cadastro",
+    Component: RegisterPage,
   },
   {
     path: '/adm',
