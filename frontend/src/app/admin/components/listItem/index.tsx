@@ -6,7 +6,7 @@ const ListItem = ({
 }: ListItemProps) => {
 
   const onEdititem = () => () => {
-    editButtonCallback();
+    if (editButtonCallback) editButtonCallback();
   }
 
   const onDeleteItem = () => () => {
@@ -20,16 +20,19 @@ const ListItem = ({
         className={styles.listItemText}
       >{name}</span>
       <div className={styles.buttons}>
-        <button
-          name="Editar categoria"
-          className={styles.editButton}
-          onClick={
-            onEdititem()
-          }
-          disabled={editDisabled}
-        >
-          Editar
-        </button>
+        {
+          editButtonCallback &&
+          <button
+            name="Editar categoria"
+            className={styles.editButton}
+            onClick={
+              onEdititem()
+            }
+            disabled={editDisabled}
+          >
+            Editar
+          </button>
+        }
         <button
           name="Excluir categoria"
           className={styles.deleteButton}

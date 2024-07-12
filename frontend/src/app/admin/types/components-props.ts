@@ -1,9 +1,9 @@
 export interface ListItemProps {
   name: string;
   deleteBtnCallback: () => void;
-  deleteDisabled: boolean;
-  editButtonCallback: () => void;
-  editDisabled: boolean;
+  deleteDisabled?: boolean;
+  editButtonCallback?: () => void;
+  editDisabled?: boolean;
 }
 
 export interface BaseLayoutProps {
