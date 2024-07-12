@@ -45,6 +45,14 @@
   cursor: not-allowed;
 }
 
+.editButton:hover {
+  background-color: #45a049;
+}
+
+.deleteButton:hover {
+  color: #ff1100;
+}
+
 .deleteButton {
   background-color: transparent;
   color: #f44336;
