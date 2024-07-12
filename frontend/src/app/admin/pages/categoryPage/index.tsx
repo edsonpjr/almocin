@@ -56,35 +56,27 @@ const CategoryPage = () => {
   useEffect(() => {
     service.getCategories()
 
+    function loading() {
+      setShowLoading(true)
+      setTimeout(() => {
+        setShowLoading(false) 
+      }, 1000);
+    }
+
     state.createCategoryRequestStatus.maybeMap({
       failed: (error) => setErrorMsg(error.message),
-      loading: () => {
-        setShowLoading(true)
-        setTimeout(() => {
-          setShowLoading(false) 
-        }, 1000);
-      }
+      loading: () => loading()
     })
     state.updateCategoryRequestStatus.maybeMap({
       failed: (error) => {
         console.log(error.message)
         setErrorMsg(error.message)
       },
-      loading: () => {
-        setShowLoading(true)
-        setTimeout(() => {
-          setShowLoading(false) 
-        }, 1000);
-      }
+      loading: () => loading()
     })
     state.deleteCategoryRequestStatus.maybeMap({
       failed: (error) => setErrorMsg(error.message),
-      loading: () => {
-        setShowLoading(true)
-        setTimeout(() => {
-          setShowLoading(false) 
-        }, 1000);
-      }
+      loading: () => loading()
     })
   }, 
   [service,
