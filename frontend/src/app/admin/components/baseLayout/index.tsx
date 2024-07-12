@@ -1,12 +1,99 @@
+import {
+  AppBar, Divider, Drawer,
+  IconButton, List, ListItemButton,
+  ListItemIcon, ListItemText, Toolbar
+} from "@mui/material";
 import { BaseLayoutProps } from "../../types/components-props";
+import { useCallback, useState } from "react";
+
+import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+import MenuIcon from "@mui/icons-material/Menu";
+import PeopleIcon from "@mui/icons-material/People";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import DashboardIcon from "@mui/icons-material/Dashboard";
+import BarChartIcon from "@mui/icons-material/BarChart";
+import AssignmentIcon from "@mui/icons-material/Assignment";
+
 import styles from "./index.module.css";
 
 const BaseLayout = ({ children, titlePage }: BaseLayoutProps) => {
+  const [open, setOpen] = useState(false);
+  const toggleDrawer = useCallback(() => {
+    setOpen(!open)
+  }, [open])
+
   return (
-    <section className={styles.container}>
-      <h1 className={styles.title}>{ titlePage }</h1>
-      {children}
-    </section>
+    <>
+      <AppBar
+        position="absolute"
+        sx={{flexDirection: 'row', padding: '.5rem 1rem', alignItems: 'center'}}
+      >
+        <IconButton
+          edge="start"
+          color="inherit"
+          aria-label="open drawer"
+          onClick={toggleDrawer}
+          sx={{
+            marginRight: '36px',
+            ...(open && { display: 'none' }),
+          }}
+        >
+          <MenuIcon />
+        </IconButton>
+        <h1>{titlePage}</h1>
+      </AppBar>
+      <Drawer open={open}>
+        <Toolbar
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'flex-end',
+            px: [1],
+          }}
+        >
+          <h1>Menu</h1>
+          <IconButton onClick={toggleDrawer}>
+            <ChevronLeftIcon />
+          </IconButton>
+        </Toolbar>
+        <Divider />
+        <List component="nav">
+          <ListItemButton>
+            <ListItemIcon>
+              <DashboardIcon />
+            </ListItemIcon>
+            <ListItemText primary="Boas vindas" />
+          </ListItemButton>
+          <ListItemButton>
+            <ListItemIcon>
+              <ShoppingCartIcon />
+            </ListItemIcon>
+            <ListItemText primary="Cardápio" />
+          </ListItemButton>
+          <ListItemButton>
+            <ListItemIcon>
+              <PeopleIcon />
+            </ListItemIcon>
+            <ListItemText primary="Usuários" />
+          </ListItemButton>
+          <ListItemButton>
+            <ListItemIcon>
+              <BarChartIcon />
+            </ListItemIcon>
+            <ListItemText primary="Estatísticas" />
+          </ListItemButton>
+          <ListItemButton>
+            <ListItemIcon>
+              <AssignmentIcon />
+            </ListItemIcon>
+            <ListItemText primary="Categorias" />
+          </ListItemButton>
+        </List>
+      </Drawer>
+      <main className={styles.container}>
+        {children}
+      </main>
+    </>
   );
 };
 
