@@ -1,4 +1,4 @@
-import Category from "src/shared/types/category";
+import Category from "../../../shared/types/category";
 
 export default interface ItemMenuModel {
   id: string;
