@@ -5,3 +5,8 @@ export interface ListItemProps {
   editButtonCallback: () => void;
   editDisabled: boolean;
 }
+
+export interface BaseLayoutProps {
+  titlePage: string;
+  children: React.ReactNode;
+}

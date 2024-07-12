@@ -4,6 +4,7 @@ import { CategoryContext } from "../../context/categoryContext";
 import LoadingComponent from "../../../../shared/components/Loading";
 import Modal from "../../../../shared/components/model";
 import ListItem from "../../components/listItem";
+import BaseLayout from "../../components/baseLayout";
 
 const CategoryPage = () => {
   const { service, state } = useContext(CategoryContext);
@@ -86,8 +87,7 @@ const CategoryPage = () => {
   ]);
 
   return (
-    <section className={styles.container}>
-      <h1 className={styles.title}>Categorias</h1>
+    <BaseLayout titlePage="Categorias">
       <div className={styles.listContainer}>
         {state.getCategoriesRequestStatus.maybeMap({
           loading: () => <span>Carregando...</span>,
@@ -141,7 +141,7 @@ const CategoryPage = () => {
       >
         <span>{errorMsg}</span>
       </Modal>
-    </section>
+    </BaseLayout>
   );
 };
 
