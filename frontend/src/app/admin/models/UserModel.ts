@@ -5,7 +5,5 @@ export default interface UserModel {
   gender: string;
   cpf: string;
   cep: string;
-  password: string;
   paymentMethod: string;
-  recoveryQuestion: string;
 }
