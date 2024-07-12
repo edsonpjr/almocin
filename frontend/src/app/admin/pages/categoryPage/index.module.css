@@ -23,64 +23,9 @@
   gap: 16px;
 }
 
-.listItem {
-  height: 100%;
-  width: 100%;
-  padding: 0.5rem 1rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.listItemText {
-  font-size: 1.5rem;
-  border: none;
-  background: none;
-  width: 100%;
-}
-
 .buttons {
   display: flex;
   gap: 1rem;
-}
-
-.editButton {
-  background-color: #4CAF50;
-  color: white;
-  padding: 0.5rem 1rem;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 1rem;
-  border-radius: 5px;
-  border: 1px solid;
-  cursor: pointer;
-}
-
-.editButton:disabled, .createButton:disabled {
-  background-color: #ccc;
-  color: #666;
-  cursor: not-allowed;
-}
-
-.deleteButton:disabled {
-  color: #ccc;
-  cursor: not-allowed;
-}
-
-.deleteButton {
-  background-color: transparent;
-  color: #f44336;
-  padding: 0rem .5rem;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 1.7rem;
-  border: none;  
-  font-style: italic;
-  cursor: pointer;
 }
 
 .createButton {
@@ -100,14 +45,6 @@
   background-color: #45a049;
 }
 
-.editButton:hover {
-  background-color: #45a049;
-}
-
-.deleteButton:hover {
-  color: #ff1100;
-}
-
 .createInput {
   width: 100%;
   padding: 0.5rem;
@@ -121,24 +58,6 @@
     font-size: 2rem;
   }
 
-  .listItemText {
-    font-size: 1.2rem;
-  }
-
-  .listItem {
-    padding: 0.5rem;
-  }
-
-  .editButton {
-    padding: 0.5rem;
-    font-size: 0.8rem;
-  }
-
-  .deleteButton {
-    padding: 0rem .3rem;
-    font-size: 1.2rem;
-  }
-
   .createButton {
     padding: 0.5rem;
     font-size: 0.8rem;
@@ -150,10 +69,6 @@
 
   .listContainer {
     width: 95%;
-  }
-
-  .buttons {
-    gap: 0.5rem;
   }
 }
 

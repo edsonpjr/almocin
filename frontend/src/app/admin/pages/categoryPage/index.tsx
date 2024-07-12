@@ -3,6 +3,7 @@ import styles from "./index.module.css";
 import { CategoryContext } from "../../context/categoryContext";
 import LoadingComponent from "../../../../shared/components/Loading";
 import Modal from "../../../../shared/components/model";
+import ListItem from "../../components/listItem";
 
 const CategoryPage = () => {
   const { service, state } = useContext(CategoryContext);
@@ -103,34 +104,14 @@ const CategoryPage = () => {
             <>
               {categories.map((category) => {
                 return (
-                  <div key={category.id} className={styles.listItem}>
-                    <span
-                      data-cy={`category-${category.name}`}
-                      className={styles.listItemText}
-                    >{category.name}</span>
-                    <div className={styles.buttons}>
-                      <button
-                        name="Editar categoria"
-                        className={styles.editButton}
-                        onClick={
-                          onEditCategory(category.id, category.name)
-                        }
-                        disabled={createOrEdit === 'edit'
-                          && categoryToEdit !== category.id
-                        }
-                      >
-                        Editar
-                      </button>
-                      <button
-                        name="Excluir categoria"
-                        className={styles.deleteButton}
-                        onClick={deleteCategory(category.id)}
-                        disabled={createOrEdit === 'edit'}
-                      >
-                        X
-                      </button>
-                    </div>
-                  </div>
+                  <ListItem
+                    key={category.id}
+                    name={category.name}
+                    deleteDisabled={createOrEdit == 'edit'}
+                    deleteBtnCallback={deleteCategory(category.id)}
+                    editButtonCallback={onEditCategory(category.id, category.name)}
+                    editDisabled={createOrEdit == 'edit' && category.id !== categoryToEdit}
+                  ></ListItem>
                 );
               })}
             </>
