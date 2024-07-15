@@ -1,0 +1,51 @@
+.orderPanel {
+  width: 100%;
+  padding: 5px;
+  gap: 5px;
+  margin:5px;
+  border: 1px solid black;
+
+
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+
+img {
+  max-width: 300px;
+  max-height: 300px;
+}
+
+li{
+  list-style-type:none;
+}
+
+
+ul {
+  list-style-type: none; /* Remove default list styling */
+  padding: 0;
+}
+
+.orderPanel {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two columns with equal width */
+  gap: 10px; /* Adjust the gap between items */
+  border: 1px solid #ccc; /* Optional: Add a border for better visualization */
+  padding: 10px; /* Optional: Add padding */
+  margin-bottom: 10px; /* Optional: Add space between order panels */
+}
+
+.list-elem-left, .list-elem-right {
+  display: flex;
+  flex-direction: row; /* Ensure child elements are stacked vertically */
+  justify-content: center; /* Center the content vertically if needed */
+}
+
+.orderImage {
+  max-width: 100%; /* Ensure the image doesn't exceed the parent width */
+  height: auto; /* Maintain aspect ratio */
+  display: block; /* Remove the gap below the image */
+}

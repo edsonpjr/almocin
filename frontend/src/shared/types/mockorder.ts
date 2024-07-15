@@ -64,7 +64,7 @@ const order1 = {
 
 const order2 = {
   id: '2',
-  itemsId: ['item1', 'item3'],
+  itemsId: ['item3','item1'],
   userID: 'user123',
   totalPrice: 100.50,
   status: mockOrderStatus.canceled,
@@ -75,7 +75,7 @@ const order2 = {
 
 const order3 = {
   id: '3',
-  itemsId: ['item1', 'item2', 'item3'],
+  itemsId: [ 'item2', 'item1','item3'],
   userID: 'user123',
   totalPrice: 100.50,
   status: mockOrderStatus.inProgress,
@@ -111,7 +111,7 @@ const item3 = {
   id: 'item3',
   name: "coxinha",
   price: 6,
-  image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Red_Apple.jpg/280px-Red_Apple.jpg",
+  image: "https://catracalivre.com.br/wp-content/uploads/2023/05/coxinha-sem-gluten.jpg",
   categoryID: "massa",
   oldPrice: 2,
   description: "salgado",
