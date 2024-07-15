@@ -6,6 +6,7 @@ import AdminPage from "./app/admin/pages/adminPage";
 import RegisterPage from "./app/login/pages/registerPage";
 import LoginPage from "./app/login/pages/loginPage";
 import HomePage from "./app/home/pages/homePage";
+import ItemMenuPage from "./app/itemMenu/pages/itemMenuPage";
 
 const router = createBrowserRouter([
   {
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
         Component: CategoryPage
       }
     ]
+  },
+  {
+    path: "/menu",
+    Component: ItemMenuPage
   }
 ]);
 

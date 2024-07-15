@@ -1,22 +1,20 @@
-import BaseLayout from "../../components/baseLayout";
+import { useContext, useEffect } from "react";
 import styles from "./index.module.css";
 import LoadingComponent from "../../../../shared/components/Loading";
+import BaseLayout from "../../components/baseLayout";
+import { ItemMenuContext } from "../../context/itemMenuContext";
 import { Table, TableHead, TableRow, TableCell, TableBody } from "@mui/material";
-import { useContext, useEffect } from "react";
-import { ItemMenuContext } from "../../../itemMenu/context/itemMenuContext";
 
-const HomePage = () => {
+const ItemMenuPage = () => {
   const {service, state} = useContext(ItemMenuContext);
 
-  useEffect(() => {
-     service.getItems()
-   }, 
-   [service]);
+ useEffect(() => {
+    service.getItems()
+  }, 
+  [service]);
 
   return (
     <BaseLayout titlePage="Cardápio">
-      <h1>Bem-vindo ao AlmoCIn!</h1>
-
       <div className={styles.listContainer}>
         {state.getItemsRequestStatus.maybeMap({
           loading: () => <LoadingComponent></LoadingComponent>,
@@ -58,4 +56,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default ItemMenuPage;
