@@ -8,6 +8,7 @@ import styles from './index.module.css';
 const HistoryPage = () => {
   return (
     <BaseLayout titlePage="historico">
+    
       <ul >
         <div>
             {mockOrders.map((order, index) => (

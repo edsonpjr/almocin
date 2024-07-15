@@ -84,6 +84,17 @@ const order3 = {
   address_number: 123,
 };
 
+const order4 = {
+  id: '4',
+  itemsId: [ 'item2', 'item1','item3'],
+  userID: 'user123',
+  totalPrice: 10.50,
+  status: mockOrderStatus.inCart,
+  totalDeliveryTime: 50,
+  cep: '12345-678',
+  address_number: 123,
+};
+
 
 const item1 = {
   id: "item1",
@@ -122,10 +133,11 @@ const item3 = {
 const ord1 = new mockOrder(order1);
 const ord2 = new mockOrder(order2);
 const ord3 = new mockOrder(order3);
+const ord4 = new mockOrder(order4);
 
 const it1 = new mockItem(item1);
 const it2 = new mockItem(item2);
 const it3 = new mockItem(item3);
 
-export const mockOrders  = [ord1,ord2,ord3]
+export const mockOrders  = [ord1,ord2,ord3,ord4]
 export const mockItems  = [it1,it2,it3]
