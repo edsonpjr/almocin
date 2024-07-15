@@ -5,11 +5,16 @@ import MenuPage from "./app/admin/pages/menuPage";
 import AdminPage from "./app/admin/pages/adminPage";
 import RegisterPage from "./app/login/pages/registerPage";
 import LoginPage from "./app/login/pages/loginPage";
+import HomePage from "./app/home/pages/homePage";
 
 const router = createBrowserRouter([
   {
     path: "*",
     Component: LoginPage,
+  },
+  {
+    path: "/home",
+    Component: HomePage,
   },
   {
     path: "/cadastro",
