@@ -25,27 +25,27 @@ li{
 
 
 ul {
-  list-style-type: none; /* Remove default list styling */
+  list-style-type: none; 
   padding: 0;
 }
 
 .orderPanel {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* Two columns with equal width */
-  gap: 10px; /* Adjust the gap between items */
-  border: 1px solid #ccc; /* Optional: Add a border for better visualization */
-  padding: 10px; /* Optional: Add padding */
-  margin-bottom: 10px; /* Optional: Add space between order panels */
+  grid-template-columns: 1fr 1fr;
+  gap: 10px; 
+  border: 1px solid #ccc; 
+  padding: 10px; 
+  margin-bottom: 10px;
 }
 
 .list-elem-left, .list-elem-right {
   display: flex;
-  flex-direction: row; /* Ensure child elements are stacked vertically */
-  justify-content: center; /* Center the content vertically if needed */
+  flex-direction: row;
+  justify-content: center;
 }
 
 .orderImage {
-  max-width: 100%; /* Ensure the image doesn't exceed the parent width */
-  height: auto; /* Maintain aspect ratio */
-  display: block; /* Remove the gap below the image */
+  max-width: 100%; 
+  height: auto; 
+  display: block;
 }

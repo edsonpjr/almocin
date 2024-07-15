@@ -1,9 +1,9 @@
 .summaryButtons{
   display: grid;
-  grid-template-rows: 1fr 1fr; 
+  grid-template-rows: 1fr 0fr; 
   gap: 10px; 
   border: 1px solid #ccc; 
-  padding: 10px;
+  padding: 30px; 
   margin-bottom: 10px;
 }
 
@@ -33,54 +33,44 @@
   cursor: pointer;
 }
 
-.orderPanel {
-  width: 100%;
-  padding: 5px;
-  gap: 5px;
-  margin:5px;
-  border: 1px solid black;
-
-
-  border-radius: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-}
-
-
 img {
-  max-width: 300px;
-  max-height: 300px;
+  max-width: 50px;
+  max-height: 50px;
 }
 
 li{
   list-style-type:none;
 }
-
-
-ul {
-  list-style-type: none;
-  padding: 0;
+.orderPanel{
+  width: 1000px;
+  align-items: center;
+  border-radius: 5px;
+  border: solid black;
+  border-width: 1px;
+  gap:10px;
+  padding: 30px;
 }
 
-.orderPanel {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px; 
-  border: 1px solid #ccc;
+.orderInfo{
+  width: 80%;
+  
+  align-self: center;
+  border-radius: 5px;
   padding: 10px;
-  margin-bottom: 10px; 
+  gap:10px;
+
 }
 
-.list-elem-left, .list-elem-right {
-  display: flex;
-  flex-direction: row; 
-  justify-content: center; 
-}
+.itemInfo{
+  align-self: center;
+  border-radius: 5px;
+  border: solid black;
+  border-width: 1px;
+  gap:10px;
+  padding: 10px;
 
-.orderImage {
-  max-width: 100%; 
-  height: auto; 
-  display: block;
+}
+ul {
+  list-style-type: none; /* Remove default list styling */
+  padding: 0;
 }

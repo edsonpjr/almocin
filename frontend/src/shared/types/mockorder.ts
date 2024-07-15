@@ -86,10 +86,22 @@ const order3 = {
 
 const order4 = {
   id: '4',
-  itemsId: [ 'item2', 'item1','item3'],
+  itemsId: [ 'item5', 'item1','item3'],
   userID: 'user123',
   totalPrice: 10.50,
   status: mockOrderStatus.inCart,
+  totalDeliveryTime: 50,
+  cep: '12345-678',
+  address_number: 123,
+};
+
+
+const order5 = {
+  id: '5',
+  itemsId: [ 'item4','item5','item3'],
+  userID: 'user123',
+  totalPrice: 10.50,
+  status: mockOrderStatus.inProgress,
   totalDeliveryTime: 50,
   cep: '12345-678',
   address_number: 123,
@@ -129,15 +141,40 @@ const item3 = {
   timeToPrepare: 110
 };
 
+const item4 = {
+  id: 'item4',
+  name: "brigadeiro",
+  price: 63,
+  image: "https://t3.gstatic.com/licensed-image?q=tbn:ANd9GcSRAJRjiDEYHinMgUSOClGrRBVtQ0PIJkWfFB-jMav8QEWF9GSjz3nCJNNVGcbbZmtH",
+  categoryID: "doce",
+  oldPrice: 21,
+  description: "brigadeiro de chocolate bem lindo bem gosotos",
+  timeToPrepare: 1101
+};
+
+const item5 = {
+  id: 'item5',
+  name: "mandioca",
+  price: 163,
+  image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlEHAekK48hV6b-UpCR_ZvnkDd9wMXY5kKhA&s",
+  categoryID: "massa",
+  oldPrice: 2,
+  description: "salgado",
+  timeToPrepare: 110
+};
+
 
 const ord1 = new mockOrder(order1);
 const ord2 = new mockOrder(order2);
 const ord3 = new mockOrder(order3);
 const ord4 = new mockOrder(order4);
+const ord5 = new mockOrder(order5);
 
 const it1 = new mockItem(item1);
 const it2 = new mockItem(item2);
 const it3 = new mockItem(item3);
+const it4 = new mockItem(item4);
+const it5 = new mockItem(item5);
 
-export const mockOrders  = [ord1,ord2,ord3,ord4]
-export const mockItems  = [it1,it2,it3]
+export const mockOrders  = [ord1,ord2,ord3,ord4,ord5]
+export const mockItems  = [it1,it2,it3,it4,it5]

@@ -17,8 +17,8 @@ const CartPage = () => {
                   <li key={index} className= {styles.orderPanel}>
                     <div className="list-elem-left">
                       <p> name: {item.name}</p>
-                      <p>cook time: {item.timeToPrepare} days</p>
-                      <p>description {item.description} days</p>
+                      <p>cook time: {item.timeToPrepare} </p>
+                      <p>description {item.description}</p>
                       <p>Price: ${item.price}</p>
 
                     </div>
@@ -31,25 +31,24 @@ const CartPage = () => {
             ))}
         </div>
 
+        <div className={styles.orderPanel}>
+          <div>
+            <p>total price: </p>
+          </div>
+      
+          <div className={styles.summaryButtons}>
+            <button className={styles.confirmButton}>
+              confirmar
+            </button>
+
+            <button className={styles.cancelButton}>
+              cancelar
+            </button>
+        </div>        
+      </div>
       </ul>
         
-      <div className={styles.orderPanel}>
-        <div>
-          <p>total price: </p>
-        </div>
-    
-        <div className={styles.summaryButtons}>
-          <button className={styles.confirmButton}>
-            confirmar
-          </button>
-
-          <button className={styles.cancelButton}>
-            cancelar
-          </button>
-        </div>
-
-        
-      </div>
+      
         
     </BaseLayout>
     
