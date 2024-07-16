@@ -1,7 +1,7 @@
 import { useCallback, useContext, useEffect, useState } from "react";
 import styles from "./index.module.css";
-//import { CategoryContext } from "../../context/categoryContext";
-import { CategoryContext } from "../../context/CategoryContext";
+import { CategoryContext } from "../../context/categoryContext";
+
 
 import LoadingComponent from "../../../../shared/components/Loading";
 import Modal from "../../../../shared/components/model";
