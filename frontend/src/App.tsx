@@ -5,15 +5,29 @@ import MenuPage from "./app/admin/pages/menuPage";
 import AdminPage from "./app/admin/pages/adminPage";
 import RegisterPage from "./app/login/pages/registerPage";
 import LoginPage from "./app/login/pages/loginPage";
+import OrderPage from "./app/order/pages/orderPage";
+import CartPage from "./app/cart/pages/cartPage";
+import HistoryPage from "./app/history/pages/historyPage";
 
 const router = createBrowserRouter([
   {
     path: "*",
     Component: LoginPage,
+  },{
+    path:"order",
+    Component:OrderPage,
   },
   {
     path: "/cadastro",
     Component: RegisterPage,
+  },
+  {
+    path:"/cart",
+    Component: CartPage
+  },
+  {
+    path:"/history",
+    Component: HistoryPage
   },
   {
     path: '/adm',
