@@ -1,4 +1,4 @@
-import { StatsFilter } from './types';
+import { StatsFilter } from "./types";
 
 export const fetchStats = async (filter: StatsFilter, token: string) => {
   try {
@@ -10,7 +10,7 @@ export const fetchStats = async (filter: StatsFilter, token: string) => {
     const data = await response.json();
     return data;
   } catch (error) {
-    console.error('Erro ao buscar estatísticas:', error);
+    console.error("Erro ao buscar estatísticas:", error);
     throw error;
   }
 };
