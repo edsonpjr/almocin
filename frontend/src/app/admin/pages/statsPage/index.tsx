@@ -2,31 +2,35 @@ import { useContext, useEffect } from "react";
 import styles from "./index.module.css";
 import LoadingComponent from "../../../../shared/components/Loading";
 import BaseLayout from "../../components/baseLayout";
-import { StatsContext } from "../../context/statsContext";
-import { StatsFilter } from "../../context/statsContext/types";
-import { fetchStats } from "../../context/statsContext/service";
+import { StatsContext, StatsFilter } from "../../context/statsContext";
 import { Table, TableHead, TableRow, TableCell, TableBody, Select, MenuItem, FormControl, InputLabel } from "@mui/material";
 
 const StatsPage = () => {
   const { state, dispatch } = useContext(StatsContext);
 
-  const getStats = async (filter: StatsFilter) => {
+  const fetchStats = async (filter: StatsFilter) => {
     dispatch({ type: 'GET_STATS', payload: { loading: true } });
     try {
-      const data = await fetchStats(filter, localStorage.getItem('token') || '');
+      const response = await fetch(`/api/stats/${filter}`, {
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('token')}`
+        }
+      });
+      const data = await response.json();
       dispatch({ type: 'GET_STATS', payload: { loading: false, ...data.data } });
     } catch (error) {
       dispatch({ type: 'GET_STATS', payload: { loading: false, error: true } });
+      console.error('Erro ao buscar estatísticas:', error);
     }
   };
 
   useEffect(() => {
-    getStats(state.filter);
+    fetchStats(state.filter);
   }, [state.filter]);
 
   const handleFilterChange = (event: React.ChangeEvent<{ value: unknown }>) => {
     const filter = event.target.value as StatsFilter;
-    dispatch({ type: 'GET_STATS', payload: { filter } });
+    dispatch({ type: 'SET_FILTER', payload: { filter } });
   };
 
   return (
