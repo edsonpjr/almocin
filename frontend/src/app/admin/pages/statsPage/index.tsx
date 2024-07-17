@@ -11,12 +11,12 @@ const StatsPage = () => {
   const { state, dispatch } = useContext(StatsContext);
 
   const getStats = async (filter: StatsFilter) => {
-    dispatch({ type: 'SET_STATS', payload: { loading: true } });
+    dispatch({ type: 'GET_STATS', payload: { loading: true } });
     try {
       const data = await fetchStats(filter, localStorage.getItem('token') || '');
-      dispatch({ type: 'SET_STATS', payload: { loading: false, ...data.data } });
+      dispatch({ type: 'GET_STATS', payload: { loading: false, ...data.data } });
     } catch (error) {
-      dispatch({ type: 'SET_STATS', payload: { loading: false, error: true } });
+      dispatch({ type: 'GET_STATS', payload: { loading: false, error: true } });
     }
   };
 
@@ -26,7 +26,7 @@ const StatsPage = () => {
 
   const handleFilterChange = (event: React.ChangeEvent<{ value: unknown }>) => {
     const filter = event.target.value as StatsFilter;
-    dispatch({ type: 'SET_FILTER', payload: { filter } });
+    dispatch({ type: 'GET_STATS', payload: { filter } });
   };
 
   return (
