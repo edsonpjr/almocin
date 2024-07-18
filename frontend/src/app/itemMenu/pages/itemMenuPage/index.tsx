@@ -1,12 +1,12 @@
 import { useContext, useEffect } from "react";
 import styles from "./index.module.css";
 import LoadingComponent from "../../../../shared/components/Loading";
-import BaseLayout from "../../components/baseLayout";
-import { ItemMenuContext } from "../../context/itemMenuContext";
+import BaseLayout from "../../../../shared/components/baseLayout";
+import { MenuContext } from "../../../admin/context/menuContext";
 import { Table, TableHead, TableRow, TableCell, TableBody } from "@mui/material";
 
 const ItemMenuPage = () => {
-  const {service, state} = useContext(ItemMenuContext);
+  const {service, state} = useContext(MenuContext);
 
  useEffect(() => {
     service.getItems()

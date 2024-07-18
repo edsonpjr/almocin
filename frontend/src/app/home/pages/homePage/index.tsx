@@ -1,12 +1,12 @@
-import BaseLayout from "../../components/baseLayout";
+import BaseLayout from "../../../../shared/components/baseLayout";
 import styles from "./index.module.css";
 import LoadingComponent from "../../../../shared/components/Loading";
 import { Table, TableHead, TableRow, TableCell, TableBody } from "@mui/material";
 import { useContext, useEffect } from "react";
-import { ItemMenuContext } from "../../../itemMenu/context/itemMenuContext";
+import { MenuContext } from "../../../admin/context/menuContext";
 
 const HomePage = () => {
-  const {service, state} = useContext(ItemMenuContext);
+  const {service, state} = useContext(MenuContext);
 
   useEffect(() => {
      service.getItems()
