@@ -3,7 +3,7 @@ import {
   IconButton, List, ListItemButton,
   ListItemIcon, ListItemText, Toolbar
 } from "@mui/material";
-import { BaseLayoutProps } from "../../types/components-props";
+import { BaseLayoutProps } from "../../../../shared/types/components-props";
 import { useCallback, useState } from "react";
 
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
