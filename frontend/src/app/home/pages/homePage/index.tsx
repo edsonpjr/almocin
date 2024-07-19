@@ -3,7 +3,7 @@ import styles from "./index.module.css";
 import LoadingComponent from "../../../../shared/components/Loading";
 import { Table, TableHead, TableRow, TableCell, TableBody } from "@mui/material";
 import { useContext, useEffect } from "react";
-import { MenuContext } from "../../../admin/context/menuContext";
+import { MenuContext } from "../../../../shared/context/menuContext";
 
 const HomePage = () => {
   const {service, state} = useContext(MenuContext);

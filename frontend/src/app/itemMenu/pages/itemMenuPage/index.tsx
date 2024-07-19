@@ -2,7 +2,7 @@ import { useContext, useEffect } from "react";
 import styles from "./index.module.css";
 import LoadingComponent from "../../../../shared/components/Loading";
 import BaseLayout from "../../../../shared/components/baseLayout";
-import { MenuContext } from "../../../admin/context/menuContext";
+import { MenuContext } from "../../../../shared/context/menuContext";
 import { Table, TableHead, TableRow, TableCell, TableBody } from "@mui/material";
 
 const ItemMenuPage = () => {
