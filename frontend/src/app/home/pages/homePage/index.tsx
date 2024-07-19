@@ -4,6 +4,7 @@ import LoadingComponent from "../../../../shared/components/Loading";
 import { Table, TableHead, TableRow, TableCell, TableBody } from "@mui/material";
 import { useContext, useEffect } from "react";
 import { MenuContext } from "../../../../shared/context/menuContext";
+import { listItemUser } from "../../../../shared/types/base-layout-list-item";
 
 const HomePage = () => {
   const {service, state} = useContext(MenuContext);
@@ -14,7 +15,7 @@ const HomePage = () => {
    [service]);
 
   return (
-    <BaseLayout titlePage="Cardápio">
+    <BaseLayout titlePage="Cardápio" listItem={listItemUser}>
       <h1>Bem-vindo ao AlmoCIn!</h1>
 
       <div className={styles.listContainer}>

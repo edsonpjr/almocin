@@ -4,17 +4,18 @@ import LoadingComponent from "../../../../shared/components/Loading";
 import BaseLayout from "../../../../shared/components/baseLayout";
 import { MenuContext } from "../../../../shared/context/menuContext";
 import { Table, TableHead, TableRow, TableCell, TableBody } from "@mui/material";
+import { listItemUser } from "../../../../shared/types/base-layout-list-item";
 
 const ItemMenuPage = () => {
   const {service, state} = useContext(MenuContext);
 
- useEffect(() => {
+  useEffect(() => {
     service.getItems()
   }, 
   [service]);
 
   return (
-    <BaseLayout titlePage="Cardápio">
+    <BaseLayout titlePage="Cardápio" listItem={listItemUser}>
       <div className={styles.listContainer}>
         {state.getItemsRequestStatus.maybeMap({
           loading: () => <LoadingComponent></LoadingComponent>,

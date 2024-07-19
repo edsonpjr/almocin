@@ -8,14 +8,10 @@ import { useCallback, useState } from "react";
 
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import MenuIcon from "@mui/icons-material/Menu";
-import PeopleIcon from "@mui/icons-material/People";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import DashboardIcon from "@mui/icons-material/Dashboard";
-import HistoryIcon from "@mui/icons-material/History";
 
 import styles from "./index.module.css";
 
-const BaseLayout = ({ children, titlePage }: BaseLayoutProps) => {
+const BaseLayout = ({ children, titlePage, listItem}: BaseLayoutProps) => {
   const [open, setOpen] = useState(false);
   const toggleDrawer = useCallback(() => {
     setOpen(!open)
@@ -57,30 +53,14 @@ const BaseLayout = ({ children, titlePage }: BaseLayoutProps) => {
         </Toolbar>
         <Divider />
         <List component="nav">
-          <ListItemButton>
-            <ListItemIcon>
-              <DashboardIcon />
-            </ListItemIcon>
-            <ListItemText primary="Boas vindas" />
-          </ListItemButton>
-          <ListItemButton>
-            <ListItemIcon>
-              <ShoppingCartIcon />
-            </ListItemIcon>
-            <ListItemText primary="Cardápio" />
-          </ListItemButton>
-          <ListItemButton>
-            <ListItemIcon>
-              <HistoryIcon />
-            </ListItemIcon>
-            <ListItemText primary="Histórico" />
-          </ListItemButton>
-          <ListItemButton>
-            <ListItemIcon>
-              <PeopleIcon />
-            </ListItemIcon>
-            <ListItemText primary="Usuário" />
-          </ListItemButton>
+          {listItem.map((item, index) => (
+            <ListItemButton key={index}>
+              <ListItemIcon>
+                <item.icon />
+              </ListItemIcon>
+              <ListItemText primary={item.text} />
+            </ListItemButton>
+          ))}
         </List>
       </Drawer>
       <main className={styles.container}>
