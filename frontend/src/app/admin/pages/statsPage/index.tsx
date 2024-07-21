@@ -1,10 +1,11 @@
 import { useContext, useEffect } from "react";
 import styles from "./index.module.css";
 import LoadingComponent from "../../../../shared/components/Loading";
-import BaseLayout from "../../components/baseLayout";
+import BaseLayout from "../../../../shared/components/baseLayout";
 import { StatsContext } from "../../context/statsContext/index";
 import { StatsFilter } from "../../context/statsContext/types";
 import { Table, TableHead, TableRow, TableCell, TableBody, Select, MenuItem, FormControl, InputLabel } from "@mui/material";
+import { listItemAdmin } from "../../../../shared/types/base-layout-list-item";
 
 const StatsPage = () => {
   const { state, dispatch } = useContext(StatsContext);
@@ -35,7 +36,7 @@ const StatsPage = () => {
   };
 
   return (
-    <BaseLayout titlePage="Estatísticas">
+    <BaseLayout titlePage="Estatísticas" listItem={listItemAdmin}>
       <div className={styles.listContainer}>
         <FormControl variant="outlined" className={styles.filterControl}>
           <InputLabel id="filter-label">Filtro</InputLabel>
