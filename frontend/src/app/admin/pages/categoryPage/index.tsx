@@ -4,7 +4,7 @@ import { CategoryContext } from "../../context/CategoryContext";
 
 
 import LoadingComponent from "../../../../shared/components/Loading";
-import Modal from "../../../../shared/components/model";
+import Modal from "../../../../shared/components/modal";
 import ListItem from "../../components/listItem";
 import BaseLayout from "../../../../shared/components/baseLayout";
 import { listItemAdmin } from "../../../../shared/types/base-layout-list-item";
