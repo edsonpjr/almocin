@@ -4,7 +4,7 @@ import LoadingComponent from "../../../../shared/components/Loading";
 import { Table, TableHead, TableRow, TableCell, TableBody } from "@mui/material";
 import { useContext, useEffect } from "react";
 import { MenuContext } from "../../../../shared/context/menuContext";
-import { listItemUser } from "../../../../shared/types/base-layout-list-item";
+import { listItemUser } from "../../../../shared/types/base-layout";
 
 const HomePage = () => {
   const {service, state} = useContext(MenuContext);

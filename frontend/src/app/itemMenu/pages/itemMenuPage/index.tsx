@@ -4,7 +4,7 @@ import LoadingComponent from "../../../../shared/components/Loading";
 import BaseLayout from "../../../../shared/components/BaseLayout";
 import { MenuContext } from "../../../../shared/context/menuContext";
 import { Table, TableHead, TableRow, TableCell, TableBody } from "@mui/material";
-import { listItemUser } from "../../../../shared/types/base-layout-list-item";
+import { listItemUser } from "../../../../shared/types/base-layout";
 
 const ItemMenuPage = () => {
   const {service, state} = useContext(MenuContext);

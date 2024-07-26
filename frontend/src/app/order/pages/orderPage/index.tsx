@@ -1,7 +1,7 @@
 import { mockItems, mockOrders, mockOrderStatus } from "../../../../shared/types/mockorder";
 import BaseLayout from "../../../../shared/components/BaseLayout";
 import styles from "./index.module.css"
-import { listItemUser } from "../../../../shared/types/base-layout-list-item";
+import { listItemUser } from "../../../../shared/types/base-layout";
 
 const OrderPage = () => {
   const inProgressOrders = mockOrders.filter((order)=> order.status === mockOrderStatus.inProgress);

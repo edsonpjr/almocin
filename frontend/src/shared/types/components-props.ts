@@ -11,6 +11,7 @@ export interface ListItemProps {
 export interface BaseLayoutListItemProps {
   text: string;
   icon: SvgIconComponent;
+  url: string;
 }
 
 export interface BaseLayoutProps {

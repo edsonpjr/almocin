@@ -5,7 +5,7 @@ import BaseLayout from "../../../../shared/components/BaseLayout";
 import { StatsContext } from "../../context/statsContext/index";
 import { StatsFilter } from "../../context/statsContext/types";
 import { Table, TableHead, TableRow, TableCell, TableBody, Select, MenuItem, FormControl, InputLabel } from "@mui/material";
-import { listItemAdmin } from "../../../../shared/types/base-layout-list-item";
+import { listItemAdmin } from "../../../../shared/types/base-layout";
 
 const StatsPage = () => {
   const { state, dispatch } = useContext(StatsContext);

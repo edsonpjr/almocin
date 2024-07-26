@@ -14,26 +14,31 @@ import HistoryPage from "./app/history/pages/historyPage";
 
 const router = createBrowserRouter([
   {
-    path: "*",
-    Component: LoginPage,
-  },{
-    path:"order",
-    Component:OrderPage,
+    path: "/",
+    Component: HomePage,
   },
   {
-    path: "/home",
-    Component: HomePage,
+    path: "/login",
+    Component: LoginPage,
   },
   {
     path: "/cadastro",
     Component: RegisterPage,
   },
   {
-    path:"/cart",
+    path: "/cardapio",
+    Component: ItemMenuPage
+  },
+  {
+    path:"/pedido",
+    Component:OrderPage,
+  },
+  {
+    path:"/carrinho",
     Component: CartPage
   },
   {
-    path:"/history",
+    path:"/historico",
     Component: HistoryPage
   },
   {
@@ -60,11 +65,7 @@ const router = createBrowserRouter([
         Component: StatsPage
       }
     ]
-  },
-  {
-    path: "/menu",
-    Component: ItemMenuPage
-  }
+  }, 
 ]);
 
 export default function App() {
