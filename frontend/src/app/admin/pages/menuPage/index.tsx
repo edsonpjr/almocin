@@ -74,9 +74,9 @@ const MenuPage = () => {
           ),
         })}
       </div>
-      <button className={styles.createItem}>
-        <a className={styles.link} href="/admin/menu/create">Criar item</a>
-      </button>
+      <a href="/admin/menu/create" className={styles.createItem}>
+        Criar item
+      </a>
     </BaseLayout>
   );
 };
