@@ -65,6 +65,16 @@ export default class Database {
       return itemsIds;
     }
 
+    function getRandomOrdersStatus(): OrderStatus {
+      const status = [
+        OrderStatus.inProgress,
+        OrderStatus.inCart,
+        OrderStatus.canceled,
+        OrderStatus.concluded
+      ];
+      return status[Math.floor(Math.random() * status.length)];
+    }
+
     Database.getInstance().data = {
       menu: items.map((item, index) => new ItemMenuEntity({
         id: `item-id-${index}`,
@@ -90,7 +100,7 @@ export default class Database {
         userID: users[Math.floor(Math.random() * users.length)].id,
         id: `pedido-id-${index}`,
         totalPrice: Math.floor(Math.random() * 10), // 0 - 9
-        status: OrderStatus.inProgress,
+        status: getRandomOrdersStatus(),
         totalDeliveryTime: Math.floor(Math.random() * 60) + 15, // 15 - 75 minutes,
         cep: "12345-678",
         address_number: Math.floor(Math.random() * 999) + 1, // 1 - 1000 address number

@@ -37,4 +37,3 @@ const StatsProvider = ({ children }: { children: ReactNode }) => {
 };
 
 export { StatsContext, StatsProvider };
-

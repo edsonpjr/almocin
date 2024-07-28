@@ -1,5 +1,4 @@
 import { useCallback, useContext, useEffect, useState } from "react";
-import styles from "./index.module.css";
 import LoadingComponent from "../../../../shared/components/Loading";
 import BaseLayout from "../../../../shared/components/BaseLayout";
 import { StatsContext } from "../../context/statsContext/index";
@@ -66,8 +65,8 @@ const StatsPage = () => {
 
   return (
     <BaseLayout titlePage="Estatísticas" listItem={listItemAdmin}>
-      <div className={styles.listContainer}>
-        <FormControl variant="outlined" className={styles.filterControl}>
+      <div>
+        <FormControl variant="outlined">
           <InputLabel id="filter-label">Filtro</InputLabel>
           <Select
             labelId="filter-label"
