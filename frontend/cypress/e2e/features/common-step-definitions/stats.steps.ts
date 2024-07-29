@@ -3,12 +3,12 @@ import { Given, When, Then, Then as And } from "@badeball/cypress-cucumber-prepr
 Cypress.on('uncaught:exception', (err, runnable) => {
     // returning false here prevents Cypress from
     // failing the tests
-    return false
-})
+    return false;
+});
 
 beforeEach(() => {
-    cy.visit('/')
-})
+    cy.visit('/adm');
+});
 
 Given('o usuário está logado com o email {string} e senha {string}', (admin: string) => {
     cy.visit("/adm");
