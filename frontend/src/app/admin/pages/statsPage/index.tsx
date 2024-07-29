@@ -74,10 +74,11 @@ const StatsPage = () => {
             value={filter}
             onChange={handleFilterChange}
             label="Filtro"
+            data-cy="filter-select"
           >
-            <MenuItem value={StatsStateType.GET_STATS}>Todos</MenuItem>
-            <MenuItem value={StatsStateType.GET_MONTH}>Mês Atual</MenuItem>
-            <MenuItem value={StatsStateType.GET_MONEY}>Receita</MenuItem>
+            <MenuItem value={StatsStateType.GET_STATS} data-cy="filter-todos">Todos</MenuItem>
+            <MenuItem value={StatsStateType.GET_MONTH} data-cy="filter-mes">Mês Atual</MenuItem>
+            <MenuItem value={StatsStateType.GET_MONEY} data-cy="filter-receita">Receita</MenuItem>
           </Select>
         </FormControl>
 
