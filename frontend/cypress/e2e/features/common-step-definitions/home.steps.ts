@@ -5,7 +5,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 })
 
 
-describe('Home flows', () =>{
+describe('Home flows', () => {
     it('acesso da página Cardapio', () => {
         cy.visit('/adm/cardapio')
     });
